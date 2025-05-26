@@ -1,10 +1,4 @@
 resources:
-  - ../base/podinfo
+  - secrets
   - ../base/cloudflare-tunnel-remote
   - ../base/home-assistant
-  - secrets
-patches:
-  - path: podinfo-values.yaml
-    target:
-      kind: HelmRelease
-      name: podinfo

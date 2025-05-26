@@ -1,9 +1,4 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
 resources:
-  - ../base/podinfo
-patches:
-  - path: podinfo-values.yaml
-    target:
-      kind: HelmRelease
-      name: podinfo
+  - secrets
+  - ../base/cloudflare-tunnel-remote
+  - ../base/home-assistant
