@@ -1,25 +1,23 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: podinfo
+  name: home-assistant
   namespace: default
 spec:
-  releaseName: podinfo
+  releaseName: home-assistant
   chart:
     spec:
-      chart: podinfo
+      chart: home-assistant
       sourceRef:
         kind: HelmRepository
-        name: podinfo
+        name: pajikos
   interval: 50m
   install:
     remediation:
       retries: 3
   values:
-    redis:
+    configuration:
       enabled: true
-      repository: public.ecr.aws/docker/library/redis
-      tag: 7.0.6
+      trusted_proxies: [ "10.42.0.0/16" ]
     ingress:
-      enabled: true
-      className: traefik
+      external: true
