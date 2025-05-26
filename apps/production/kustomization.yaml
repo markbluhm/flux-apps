@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../base/podinfo
   - ../base/cloudflare-tunnel-remote
+  - ../base/home-assistant
 patches:
   - path: podinfo-values.yaml
     target:
