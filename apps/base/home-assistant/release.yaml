@@ -21,3 +21,7 @@ spec:
       trusted_proxies: [ "10.42.0.0/16" ]
     ingress:
       external: true
+    persistence:
+      enabled: true
+      size: 1Gi
+      accessMode: ReadWriteOnce
