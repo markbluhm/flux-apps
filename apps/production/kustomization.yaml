@@ -1,3 +1,4 @@
 resources:
+  - secrets
   - ../base/cloudflare-tunnel-remote
   - ../base/home-assistant
