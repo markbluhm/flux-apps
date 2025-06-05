@@ -1,35 +1,35 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: pi-hole
-  namespace: default
-spec:
-  releaseName: pihole
-  chart:
-    spec:
-      chart: pihole
-      sourceRef:
-        kind: HelmRepository
-        name: pi-hole
-  interval: 50m
-  install:
-    remediation:
-      retries: 3
-  values:
-    ingress:
-      enabled: true
-      hosts:
-      - pihole.bluhm.app
-    serviceWeb:
-      loadBalancerIP: 10.0.0.48
-      type: ClusterIP
-    adminPassword: "my!admin3password"
-    serviceDns:
-      loadBalancerIP: 10.0.0.48
-      type: LoadBalancer
-    doh:
-      enabled: true
-      pullPolicy: Always
-      envVars: {
-        DOH_UPSTREAM: "https://1.1.1.1/dns-query"
-      }
+# apiVersion: helm.toolkit.fluxcd.io/v2
+# kind: HelmRelease
+# metadata:
+#   name: pi-hole
+#   namespace: default
+# spec:
+#   releaseName: pihole
+#   chart:
+#     spec:
+#       chart: pihole
+#       sourceRef:
+#         kind: HelmRepository
+#         name: pi-hole
+#   interval: 50m
+#   install:
+#     remediation:
+#       retries: 3
+#   values:
+#     ingress:
+#       enabled: true
+#       hosts:
+#       - pihole.bluhm.app
+#     adminPassword: "my!admin3password"
+#     serviceWeb:
+#       loadBalancerIP: 10.0.0.48
+#       type: ClusterIP
+#     serviceDns:
+#       loadBalancerIP: 10.0.0.48
+#       type: NodePort
+#     doh:
+#       enabled: true
+#       pullPolicy: Always
+#       envVars: {
+#         DOH_UPSTREAM: "https://1.1.1.1/dns-query"
+#       }
