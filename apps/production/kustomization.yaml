@@ -1,5 +1,6 @@
 resources:
   - secrets
+  - ../base/pi-hole
   - ../base/repositories.yaml
   - ../base/cloudflare-tunnel-remote
   - ../base/home-assistant
