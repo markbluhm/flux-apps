@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pi-hole
+  namespace: default
+spec:
+  releaseName: pi-hole
+  chart:
+    spec:
+      chart: pihole
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+  interval: 50m
+  install:
+    remediation:
+      retries: 3
+  values:
